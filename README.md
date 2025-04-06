@@ -22,13 +22,15 @@ AWS Services Used:
 {
   "user_id": "user123",
   "name": "Mounika",
-  "phone": "+916309176725",
+  "phone": "+XXXXXXXXXX",
   "email": "mounika@example.com"
 }
-## 2. Create an AWS Lambda Function to Send Emergency Alerts
+```
+2.Create an AWS Lambda Function to Send Emergency Alerts
 Create a new role with DynamoDB Read Access and SNS Full Access.
 Replace the default code with the following Python code:
 
+```json
 import json
 import boto3
 
@@ -50,6 +52,7 @@ def lambda_handler(event, context):
     sns.publish(TopicArn='arn:aws:sns:your-topic-arn', Message=message)
     
     return {"statusCode": 200, "body": json.dumps({"message": "Alert Sent!"})}
+```
 
 3. Create an SNS Topic for Emergency Alerts
 
